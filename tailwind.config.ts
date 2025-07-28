@@ -81,51 +81,40 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: { height: '0' },
-					to: { height: 'var(--radix-accordion-content-height)' }
+					from: {
+						height: '0'
+					},
+					to: {
+						height: 'var(--radix-accordion-content-height)'
+					}
 				},
 				'accordion-up': {
-					from: { height: 'var(--radix-accordion-content-height)' },
-					to: { height: '0' }
+					from: {
+						height: 'var(--radix-accordion-content-height)'
+					},
+					to: {
+						height: '0'
+					}
 				},
 				'glow': {
-					'0%, 100%': { opacity: '1', transform: 'scale(1)' },
-					'50%': { opacity: '0.8', transform: 'scale(1.05)' }
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.5' }
 				},
-				'pulse-neon': {
-					'0%, 100%': { boxShadow: '0 0 20px hsl(var(--primary) / 0.5)' },
-					'50%': { boxShadow: '0 0 40px hsl(var(--primary) / 0.8), 0 0 60px hsl(var(--primary) / 0.4)' }
+				'type': {
+					'0%': { width: '0' },
+					'100%': { width: '100%' }
 				},
 				'float': {
-					'0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
-					'33%': { transform: 'translateY(-10px) rotate(1deg)' },
-					'66%': { transform: 'translateY(-5px) rotate(-1deg)' }
-				},
-				'matrix-rain': {
-					'0%': { transform: 'translateY(-100%)', opacity: '0' },
-					'10%': { opacity: '1' },
-					'90%': { opacity: '1' },
-					'100%': { transform: 'translateY(100vh)', opacity: '0' }
-				},
-				'cyber-scan': {
-					'0%': { transform: 'translateX(-100%)' },
-					'100%': { transform: 'translateX(100%)' }
-				},
-				'hologram-flicker': {
-					'0%, 100%': { opacity: '1' },
-					'50%': { opacity: '0.8' },
-					'75%': { opacity: '0.9' }
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'glow': 'glow 2s ease-in-out infinite',
-				'pulse-neon': 'pulse-neon 2s ease-in-out infinite',
-				'float': 'float 6s ease-in-out infinite',
-				'matrix-rain': 'matrix-rain 3s linear infinite',
-				'cyber-scan': 'cyber-scan 2s linear infinite',
-				'hologram-flicker': 'hologram-flicker 0.15s ease-in-out infinite'
+				'type': 'type 3s steps(20, end)',
+				'float': 'float 3s ease-in-out infinite'
 			}
 		}
 	},
