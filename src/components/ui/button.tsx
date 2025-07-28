@@ -18,8 +18,9 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        terminal: "bg-muted text-foreground border border-primary hover:bg-primary/10 hover:shadow-lg font-mono",
-        neon: "bg-transparent text-primary border border-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 neon-border",
+        terminal: "bg-muted text-foreground border border-primary hover:bg-primary/10 hover:shadow-lg font-mono relative overflow-hidden group",
+        neon: "bg-transparent text-primary border-2 border-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 relative overflow-hidden group",
+        cyber: "bg-gradient-to-r from-primary/20 to-secondary/20 text-foreground border border-accent hover:from-primary/40 hover:to-secondary/40 transition-all duration-500 transform hover:scale-105",
       },
       size: {
         default: "h-10 px-4 py-2",
