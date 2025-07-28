@@ -74,9 +74,7 @@ console.log("Welcome to my portfolio! 🚀");`;
                   About Me
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  I'm a passionate developer currently pursuing my B.Tech in AI & Data Science. 
-                  With hands-on experience from internships at AAI and Indian Railways, I'm dedicated 
-                  to building innovative solutions and sharing my journey through open-source contributions.
+               Btech 3rd Year Student @GSV
                 </p>
               </div>
               
