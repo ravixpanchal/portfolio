@@ -18,7 +18,7 @@ const Index = () => {
   passion: "Building in Public",
   
   skills: ["AI/ML","Web Dev"],
-  currentlyLearning: ["Advanced Algorithms"],
+  currentlyLearning: ["Advanced DSA"],
   goals: ["Build Impactful Projects"]
 };
 
@@ -85,7 +85,7 @@ console.log("Welcome to my portfolio! 🚀");`;
                 </div>
                 <div className="flex items-center gap-3 text-sm">
                   <MapPin className="w-4 h-4 text-primary" />
-                  <span className="font-mono">Based in India</span>
+                  <span className="font-mono">Orai (India)</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm">
                   <Calendar className="w-4 h-4 text-primary" />
@@ -93,7 +93,7 @@ console.log("Welcome to my portfolio! 🚀");`;
                 </div>
                 <div className="flex items-center gap-3 text-sm">
                   <Coffee className="w-4 h-4 text-primary" />
-                  <span className="font-mono">Fueled by coffee and code</span>
+                  <span className="font-mono">DSA | Machine learning | Web Dev</span>
                 </div>
               </div>
             </div>
