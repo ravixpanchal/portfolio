@@ -36,7 +36,7 @@ export const SocialLinks = () => {
     },
     {
       name: "GeeksforGeeks",
-      url: "https://auth.geeksforgeeks.org/user/ravixpanchal",
+      url: "https://www.geeksforgeeks.org/user/ravipanchal/",
       icon: Terminal,
       color: "text-green-400"
     }
