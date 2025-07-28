@@ -17,9 +17,9 @@ const Index = () => {
   education: "Btech AI&DS'27 @GSV",
   passion: "Building in Public",
   
-  skills: ["AI/ML", "Data Science", "Web Dev"],
-  currentlyLearning: ["Advanced Algorithms", "System Design"],
-  goals: ["Contribute to Open Source", "Build Impactful Projects"]
+  skills: ["AI/ML","Web Dev"],
+  currentlyLearning: ["Advanced Algorithms"],
+  goals: ["Build Impactful Projects"]
 };
 
 console.log("Welcome to my portfolio! 🚀");`;
