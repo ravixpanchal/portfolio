@@ -135,7 +135,7 @@ console.log("Welcome to my portfolio! 🚀");`;
                 </div>
               </div>
               <div className="mt-4">
-                <h3 className="text-xl font-semibold mb-2 text-secondary font-mono">Summer Intern @AAI</h3>
+                <h3 className="text-xl font-semibold mb-2 text-primary font-mono">Summer Intern @AAI</h3>
                 <p className="text-sm text-muted-foreground">
                   Working on innovative projects in the aviation industry, applying AI/ML solutions.
                 </p>
