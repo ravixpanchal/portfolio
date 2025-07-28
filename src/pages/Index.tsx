@@ -151,7 +151,7 @@ console.log("Welcome to my portfolio! 🚀");`;
                 </div>
               </div>
               <div className="mt-4">
-                <h3 className="text-xl font-semibold mb-2 text-accent font-mono">Building in Public</h3>
+                <h3 className="text-xl font-semibold mb-2 text-primary font-mono">Building in Public</h3>
                 <p className="text-sm text-muted-foreground">
                   Sharing my development journey, open-source contributions, and learning experiences.
                 </p>
