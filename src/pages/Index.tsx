@@ -176,7 +176,7 @@ console.log("Welcome to my portfolio! 🚀");`;
                 <SocialLinks />
               </div>
               <p className="text-xs text-muted-foreground">
-                © 2024 Ravi Panchal - Built with React, TypeScript & Tailwind CSS
+                Made with ❤️ by Ravi Panchal © 2025
               </p>
             </div>
           </TerminalWindow>
