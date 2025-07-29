@@ -5,6 +5,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Mail, Send, User, MessageSquare } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import emailjs from '@emailjs/browser';
 
 export const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -18,35 +19,39 @@ export const ContactForm = () => {
     e.preventDefault();
     
     try {
-      // Send form data to Formspree
-      const response = await fetch('https://formspree.io/f/xnnqlzpz', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }),
-      });
+      // Initialize EmailJS with public key
+      emailjs.init("YOUR_PUBLIC_KEY"); // You'll need to replace this with your actual public key
+      
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_email: 'ravi.panchal.kaithi@gmail.com'
+      };
 
-      if (response.ok) {
-        toast({
-          title: "Message sent successfully!",
-          description: "Thank you for your message. I'll get back to you soon.",
-        });
-        
-        // Reset form
-        setFormData({ name: '', email: '', message: '' });
-      } else {
-        throw new Error('Failed to send message');
-      }
-    } catch (error) {
+      await emailjs.send(
+        'YOUR_SERVICE_ID', // Replace with your service ID
+        'YOUR_TEMPLATE_ID', // Replace with your template ID
+        templateParams
+      );
+
       toast({
-        title: "Failed to send message",
-        description: "Please try again or contact me directly at ravi.panchal.kaithi@gmail.com",
-        variant: "destructive",
+        title: "Message sent successfully!",
+        description: "Thank you for your message. I'll get back to you soon.",
+      });
+      
+      // Reset form
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      
+      // Fallback to mailto as backup
+      const mailtoLink = `mailto:ravi.panchal.kaithi@gmail.com?subject=Message from ${formData.name}&body=Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
+      window.location.href = mailtoLink;
+      
+      toast({
+        title: "Opening email client",
+        description: "Your message will open in your default email client.",
       });
     }
   };
