@@ -41,10 +41,10 @@ console.log("Welcome to my portfolio! 🚀");`;
               <Terminal className="w-3 h-3 mr-1" />
               Currently Active
             </Badge>
-            <h1 className="text-6xl md:text-8xl font-bold mb-4 neon-text animate-float">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 neon-text animate-float">
               <TypingEffect text="Ravi Panchal" speed={150} />
             </h1>
-            <div className="text-xl md:text-2xl text-muted-foreground font-mono mb-8">
+            <div className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-muted-foreground font-mono mb-8 px-4">
               <TypingEffect 
                 text="#100DaysOfCode in Progress | Summer'25 Intern @AAI | Ex-Intern @Indian Railways | Btech AI&DS'27 @GSV | Building in Public"
                 speed={50}
@@ -60,7 +60,7 @@ console.log("Welcome to my portfolio! 🚀");`;
       {/* About Section */}
       <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
             <TerminalWindow title="about.js">
               <CodeBlock language="javascript">
                 {codeSnippet}
@@ -109,7 +109,7 @@ console.log("Welcome to my portfolio! 🚀");`;
             Current Status
           </h2>
           
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             <Card className="p-6 terminal-window">
               <div className="terminal-header">
                 <div className="flex gap-2">

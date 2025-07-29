@@ -119,6 +119,7 @@
   body {
     @apply bg-background text-foreground font-inter;
     background: var(--gradient-terminal);
+    overflow-x: hidden;
   }
 }
 
