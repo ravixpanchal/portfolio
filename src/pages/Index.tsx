@@ -12,17 +12,15 @@ const Index = () => {
   const codeSnippet = `const developer = {
   name: "Ravi Panchal",
   status: "#100DaysOfCode",
-  currentRole: "Summer'25 Intern @AAI",
-  previousExp: "Ex-Intern @Indian Railways", 
-  education: "Btech AI&DS'27 @GSV",
-  passion: "Building in Public",
-  
-  skills: ["AI/ML","Web Dev"],
   currentlyLearning: ["Advanced DSA"],
+  skills: ["AI/ML","Web Dev"],
+  education: "Btech AI&DS'27 @GSV",
+  previousExp: "Summer'25 Intern @AAI", 
+  passion: "Building in Public",
   goals: ["Build Impactful Projects"]
 };
 
-console.log("Welcome to my portfolio! 🚀");`;
+console.log("Welcome to my portfolio!");`;
 
   return (
     <div className="min-h-screen bg-background text-foreground">
