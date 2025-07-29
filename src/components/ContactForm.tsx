@@ -14,23 +14,41 @@ export const ContactForm = () => {
   });
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Create mailto link
-    const mailtoLink = `mailto:ravi.panchal.kaithi@gmail.com?subject=Message from ${formData.name}&body=Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
-    
-    // Open email client
-    window.location.href = mailtoLink;
-    
-    // Show success toast
-    toast({
-      title: "Email client opened!",
-      description: "Your default email client should open with the message pre-filled.",
-    });
-    
-    // Reset form
-    setFormData({ name: '', email: '', message: '' });
+    try {
+      // Send form data to Formspree
+      const response = await fetch('https://formspree.io/f/xnnqlzpz', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Message sent successfully!",
+          description: "Thank you for your message. I'll get back to you soon.",
+        });
+        
+        // Reset form
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      toast({
+        title: "Failed to send message",
+        description: "Please try again or contact me directly at ravi.panchal.kaithi@gmail.com",
+        variant: "destructive",
+      });
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -48,7 +66,7 @@ export const ContactForm = () => {
           Send me a message
         </CardTitle>
         <p className="text-muted-foreground text-sm">
-          Feel free to reach out! Your message will open in your email client.
+          Feel free to reach out! Your message will be sent directly to my inbox.
         </p>
       </CardHeader>
       <CardContent>

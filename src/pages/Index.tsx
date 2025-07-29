@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { User, MapPin, Calendar, Coffee, Code, Terminal, Sparkles } from "lucide-react";
 import heroImage from "@/assets/hero-coding.jpg";
 import { ContactForm } from "@/components/ContactForm";
-import { AchievementsSection } from "@/components/AchievementsSection";
+
 import { AIChatInterface } from "@/components/AIChatInterface";
 
 const Index = () => {
@@ -162,8 +162,6 @@ console.log("Welcome to my portfolio!");`;
         </div>
       </section>
 
-      {/* Achievements Section */}
-      <AchievementsSection />
 
       {/* Contact & AI Chat Section */}
       <section className="py-20 px-4">
