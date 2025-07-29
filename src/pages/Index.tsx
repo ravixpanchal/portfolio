@@ -7,6 +7,9 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { User, MapPin, Calendar, Coffee, Code, Terminal, Sparkles } from "lucide-react";
 import heroImage from "@/assets/hero-coding.jpg";
+import { ContactForm } from "@/components/ContactForm";
+import { AchievementsSection } from "@/components/AchievementsSection";
+import { AIChatInterface } from "@/components/AIChatInterface";
 
 const Index = () => {
   const codeSnippet = `const developer = {
@@ -155,6 +158,28 @@ console.log("Welcome to my portfolio!");`;
                 </p>
               </div>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Achievements Section */}
+      <AchievementsSection />
+
+      {/* Contact & AI Chat Section */}
+      <section className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 neon-text">
+              Get In Touch
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Have a question or want to collaborate? Send me a message or chat with my AI assistant!
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <ContactForm />
+            <AIChatInterface />
           </div>
         </div>
       </section>
