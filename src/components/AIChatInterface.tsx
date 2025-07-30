@@ -36,50 +36,54 @@ export const AIChatInterface = () => {
   }, [messages]);
 
   const generateAIResponse = (userMessage: string): string => {
-    const lowerMessage = userMessage.toLowerCase();
+    const message = userMessage.toLowerCase();
     
-    // Ravi's information responses
-    if (lowerMessage.includes('skill') || lowerMessage.includes('technology')) {
-      return "Ravi is proficient in multiple programming languages including Java, C++, Python, and has strong expertise in Data Structures & Algorithms (DSA) and Competitive Programming (CP). He's also experienced with web development technologies and has solved 376+ coding problems across various platforms.";
+    // Greetings
+    if (message.includes('hello') || message.includes('hi') || message.includes('hey') || message.includes('namaste')) {
+      return "Hello! I'm Ravi's AI assistant. I can tell you everything about Ravi Panchal - his education, achievements, interests, and how to connect with him. What would you like to know?";
     }
     
-    if (lowerMessage.includes('achievement') || lowerMessage.includes('accomplish')) {
-      return "Ravi has achieved significant milestones including the LeetCode 50 Days Badge for 2025, solving 376+ questions across coding platforms, and maintaining 115+ active coding days. He's currently working towards solving 500+ problems and maintaining a 200+ day streak.";
+    // Basic Information
+    if (message.includes('who is ravi') || message.includes('about ravi') || message.includes('tell me about')) {
+      return "Ravi Panchal is from Village Kaithi, Orai (Uttar Pradesh). He's currently pursuing B.Tech in Artificial Intelligence and Data Science at Gati Shakti Vishwavidyalaya (GSV), Vadodara. He's passionate about DSA, Machine Learning, and building innovative tech solutions.";
     }
     
-    if (lowerMessage.includes('contact') || lowerMessage.includes('reach') || lowerMessage.includes('email')) {
-      return "You can reach Ravi directly at ravi.panchal.kaithi@gmail.com. Feel free to use the contact form on this page to send him a message, and he'll get back to you soon!";
+    // Education
+    if (message.includes('education') || message.includes('college') || message.includes('study') || message.includes('school')) {
+      return "Ravi completed 10th and 12th from S.R. Inter College, Orai, consistently ranking in top 3. He scored 92 percentile in JEE Mains after a dedicated drop year. Currently pursuing B.Tech in AI & Data Science at GSV Vadodara.";
     }
     
-    if (lowerMessage.includes('project') || lowerMessage.includes('work')) {
-      return "Ravi is currently working on various coding projects and participating in competitive programming. He's building in public and sharing his journey. You can check out his work and connect with him through the social links on this portfolio.";
+    // Skills and Interests
+    if (message.includes('skills') || message.includes('technology') || message.includes('tech') || message.includes('interests')) {
+      return "Ravi is passionate about solving DSA problems, Machine Learning, and exploring cutting-edge technologies. He also loves watching cricket! He's focused on building efficient and impactful tech products.";
     }
     
-    if (lowerMessage.includes('education') || lowerMessage.includes('study')) {
-      return "Ravi is a Computer Science student with a passion for algorithms and problem-solving. He's actively learning and growing his skills through consistent practice and real-world projects.";
+    // Achievements and Coding
+    if (message.includes('achievement') || message.includes('accomplishment') || message.includes('leetcode') || message.includes('coding') || message.includes('100days')) {
+      return "Ravi is currently participating in #100DaysOfCode challenge on LeetCode and recently earned the 50 Days Badge! He achieved 1st Rank on GeeksforGeeks institutional leaderboard. He's building a strong coding profile across multiple platforms.";
     }
     
-    if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
-      return "Hello! Great to meet you! I'm here to help you learn more about Ravi Panchal. Feel free to ask about his skills, achievements, projects, or how to get in touch with him.";
+    // Friends and Personal Life
+    if (message.includes('friends') || message.includes('personal') || message.includes('relationship') || message.includes('college life')) {
+      return "At GSV, Ravi's best friends are Abhinav Kesharwani, Rishav Kumar, Anurag Jaiswal, Prabhat, and Pratyush. His sisters at GSV are Komal Pathak, Shreya Pathak, and Shruti Verma. He has loving seniors like Soham Vani Bhaiya, Shri Krishna Pandey Bhaiya, Ayush Bhaiya, and Soubhagya Bhaiya. He's currently not in a relationship.";
     }
     
-    if (lowerMessage.includes('help') || lowerMessage.includes('what can')) {
-      return "I can help you learn about Ravi's programming skills, achievements, projects, and career journey. I can also provide his contact information and guide you on how to reach out to him. What would you like to know?";
+    // Contact and Social Links
+    if (message.includes('contact') || message.includes('reach') || message.includes('connect') || message.includes('social') || message.includes('instagram') || message.includes('linkedin')) {
+      return "You can connect with Ravi on multiple platforms: Instagram (@ravixpanchal), LinkedIn (/ravixpanchal), GitHub, LeetCode, HackerRank, GeeksforGeeks, CodeChef, and many more! His email is ravi.panchal.kaithi@gmail.com. Check his Linktree for all links: linktr.ee/ravi.panchal";
     }
     
-    if (lowerMessage.includes('leetcode') || lowerMessage.includes('coding platform')) {
-      return "Ravi is very active on LeetCode and has earned the 50 Days Badge for 2025. He has solved 376+ problems and maintains consistent practice. He's also active on other coding platforms and participates in competitive programming.";
+    // Hometown
+    if (message.includes('hometown') || message.includes('village') || message.includes('orai') || message.includes('kaithi')) {
+      return "Ravi is from Village Kaithi, Orai in Uttar Pradesh. It's his hometown where he completed his schooling before moving to Vadodara for his B.Tech.";
     }
     
-    // Default responses
-    const defaultResponses = [
-      "That's an interesting question! Ravi is passionate about coding and problem-solving. Is there something specific about his skills or experience you'd like to know?",
-      "Thanks for your question! Ravi would be happy to discuss this with you directly. You can reach out to him using the contact form or email him at ravi.panchal.kaithi@gmail.com.",
-      "Great question! Ravi is always learning and growing. His current focus is on algorithms, competitive programming, and building innovative projects. What aspect interests you most?",
-      "I'd be happy to help! Ravi's expertise spans multiple programming languages and technologies. Feel free to ask about his specific skills, projects, or achievements."
-    ];
+    // Projects and Work
+    if (message.includes('projects') || message.includes('work') || message.includes('portfolio') || message.includes('github')) {
+      return "Ravi is actively building projects and participating in coding challenges. You can check out his work on GitHub (github.com/ravixpanchal) and see his progress on various coding platforms like LeetCode and GeeksforGeeks.";
+    }
     
-    return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+    return "That's a great question! I can tell you about Ravi's education, achievements, coding journey, friends at college, social media profiles, or anything else you'd like to know. Feel free to ask about his hometown, interests, or how to connect with him!";
   };
 
   const handleSendMessage = async () => {

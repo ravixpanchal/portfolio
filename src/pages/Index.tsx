@@ -26,7 +26,7 @@ const Index = () => {
 console.log("Welcome to my portfolio!");`;
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground" id="top">
       {/* Matrix background effect */}
       <div className="matrix-bg"></div>
       

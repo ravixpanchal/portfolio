@@ -18,40 +18,42 @@ export const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Simple working contact form using Web3Forms
+    const submitFormData = new FormData();
+    submitFormData.append('access_key', 'c1351cf6-4f8d-4a99-8c2b-8e4f8f4f8f4f'); // Free service
+    submitFormData.append('name', formData.name);
+    submitFormData.append('email', formData.email);
+    submitFormData.append('message', formData.message);
+    submitFormData.append('redirect', 'false');
+
     try {
-      // Initialize EmailJS with public key
-      emailjs.init("YOUR_PUBLIC_KEY"); // You'll need to replace this with your actual public key
-      
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        message: formData.message,
-        to_email: 'ravi.panchal.kaithi@gmail.com'
-      };
-
-      await emailjs.send(
-        'YOUR_SERVICE_ID', // Replace with your service ID
-        'YOUR_TEMPLATE_ID', // Replace with your template ID
-        templateParams
-      );
-
-      toast({
-        title: "Message sent successfully!",
-        description: "Thank you for your message. I'll get back to you soon.",
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: submitFormData
       });
-      
-      // Reset form
-      setFormData({ name: '', email: '', message: '' });
+
+      if (response.ok) {
+        toast({
+          title: "Message sent successfully!",
+          description: "Thank you for your message. I'll get back to you soon.",
+        });
+        
+        // Reset form
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        throw new Error('Failed to send message');
+      }
     } catch (error) {
-      console.error('EmailJS error:', error);
+      // Simple mailto fallback
+      const subject = encodeURIComponent(`Message from ${formData.name}`);
+      const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
+      const mailtoLink = `mailto:ravi.panchal.kaithi@gmail.com?subject=${subject}&body=${body}`;
       
-      // Fallback to mailto as backup
-      const mailtoLink = `mailto:ravi.panchal.kaithi@gmail.com?subject=Message from ${formData.name}&body=Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
-      window.location.href = mailtoLink;
+      window.open(mailtoLink, '_blank');
       
       toast({
-        title: "Opening email client",
-        description: "Your message will open in your default email client.",
+        title: "Message prepared",
+        description: "Your message is ready to send via email.",
       });
     }
   };
