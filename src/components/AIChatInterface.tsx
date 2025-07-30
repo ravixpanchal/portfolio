@@ -39,52 +39,64 @@ export const AIChatInterface = () => {
     const message = userMessage.toLowerCase();
     const socialLinks = "\n\n🔗 Know me more:\n📷 Instagram: https://www.instagram.com/ravixpanchal/\n💼 LinkedIn: https://www.linkedin.com/in/ravixpanchal/";
     
+    let response = "";
+    
     // Greetings
     if (message.includes('hello') || message.includes('hi') || message.includes('hey') || message.includes('namaste')) {
-      return "Hello! I'm Ravi's AI assistant. I can tell you everything about Ravi Panchal - his education, achievements, interests, and how to connect with him. What would you like to know?" + socialLinks;
+      response = "Hello! I'm Ravi's AI assistant. I can tell you everything about Ravi Panchal - his education, achievements, interests, and how to connect with him. What would you like to know?";
     }
     
     // Basic Information
-    if (message.includes('who is ravi') || message.includes('about ravi') || message.includes('tell me about')) {
-      return "Ravi Panchal is from Village Kaithi, Orai (Uttar Pradesh). He's currently pursuing B.Tech in Artificial Intelligence and Data Science at Gati Shakti Vishwavidyalaya (GSV), Vadodara. He's passionate about DSA, Machine Learning, and building innovative tech solutions." + socialLinks;
+    else if (message.includes('who is ravi') || message.includes('about ravi') || message.includes('tell me about')) {
+      response = "Ravi Panchal is from Village Kaithi, Orai (Uttar Pradesh). He's currently pursuing B.Tech in Artificial Intelligence and Data Science at Gati Shakti Vishwavidyalaya (GSV), Vadodara. He's passionate about DSA, Machine Learning, and building innovative tech solutions.";
     }
     
     // Education
-    if (message.includes('education') || message.includes('college') || message.includes('study') || message.includes('school')) {
-      return "Ravi completed 10th and 12th from S.R. Inter College, Orai, consistently ranking in top 3. He scored 92 percentile in JEE Mains after a dedicated drop year. Currently pursuing B.Tech in AI & Data Science at GSV Vadodara." + socialLinks;
+    else if (message.includes('education') || message.includes('college') || message.includes('study') || message.includes('school')) {
+      response = "Ravi completed 10th and 12th from S.R. Inter College, Orai, consistently ranking in top 3. He scored 92 percentile in JEE Mains after a dedicated drop year. Currently pursuing B.Tech in AI & Data Science at GSV Vadodara.";
     }
     
     // Skills and Interests
-    if (message.includes('skills') || message.includes('technology') || message.includes('tech') || message.includes('interests')) {
-      return "Ravi is passionate about solving DSA problems, Machine Learning, and exploring cutting-edge technologies. He also loves watching cricket! He's focused on building efficient and impactful tech products." + socialLinks;
+    else if (message.includes('skills') || message.includes('technology') || message.includes('tech') || message.includes('interests')) {
+      response = "Ravi is passionate about solving DSA problems, Machine Learning, and exploring cutting-edge technologies. He also loves watching cricket! He's focused on building efficient and impactful tech products.";
     }
     
     // Achievements and Coding
-    if (message.includes('achievement') || message.includes('accomplishment') || message.includes('leetcode') || message.includes('coding') || message.includes('100days')) {
-      return "Ravi is currently participating in #100DaysOfCode challenge on LeetCode and recently earned the 50 Days Badge! He achieved 1st Rank on GeeksforGeeks institutional leaderboard. He's building a strong coding profile across multiple platforms." + socialLinks;
+    else if (message.includes('achievement') || message.includes('accomplishment') || message.includes('leetcode') || message.includes('coding') || message.includes('100days')) {
+      response = "Ravi is currently participating in #100DaysOfCode challenge on LeetCode and recently earned the 50 Days Badge! He achieved 1st Rank on GeeksforGeeks institutional leaderboard. He's building a strong coding profile across multiple platforms.";
+    }
+    
+    // Internships
+    else if (message.includes('internship') || message.includes('experience') || message.includes('work experience') || message.includes('railways') || message.includes('airport')) {
+      response = "Ravi has completed two significant internships:\n\n🚂 Indian Railways - DRM Jhansi (May-June 2024): Learned DRM office operations, maintenance systems, and CRIS (Centre for Railway Information Systems). Gained practical Excel data management skills.\n\n✈️ Airports Authority of India - LBS International Airport, Varanasi (4 weeks): Understood airport operations, security protocols, and Digi Yatra (facial recognition check-in). Developed a Server Tracker Website project.";
     }
     
     // Friends and Personal Life
-    if (message.includes('friends') || message.includes('personal') || message.includes('relationship') || message.includes('college life')) {
-      return "At GSV, Ravi's best friends are Abhinav Kesharwani, Rishav Kumar, Anurag Jaiswal, Prabhat, and Pratyush. His sisters at GSV are Komal Pathak, Shreya Pathak, and Shruti Verma. He has loving seniors like Soham Vani Bhaiya, Shri Krishna Pandey Bhaiya, Ayush Bhaiya, and Soubhagya Bhaiya. He's currently not in a relationship." + socialLinks;
+    else if (message.includes('friends') || message.includes('personal') || message.includes('relationship') || message.includes('college life')) {
+      response = "At GSV, Ravi's best friends are Abhinav Kesharwani, Rishav Kumar, Anurag Jaiswal, Prabhat, and Pratyush. His sisters at GSV are Komal Pathak, Shreya Pathak, and Shruti Verma. He has loving seniors like Soham Vani Bhaiya, Shri Krishna Pandey Bhaiya, Ayush Bhaiya, and Soubhagya Bhaiya. He's currently not in a relationship.";
     }
     
     // Contact and Social Links
-    if (message.includes('contact') || message.includes('reach') || message.includes('connect') || message.includes('social') || message.includes('instagram') || message.includes('linkedin')) {
-      return "You can connect with Ravi on multiple platforms: Instagram (@ravixpanchal), LinkedIn (/ravixpanchal), GitHub, LeetCode, HackerRank, GeeksforGeeks, CodeChef, and many more! His email is ravi.panchal.kaithi@gmail.com. Check his Linktree for all links: linktr.ee/ravi.panchal" + socialLinks;
+    else if (message.includes('contact') || message.includes('reach') || message.includes('connect') || message.includes('social') || message.includes('instagram') || message.includes('linkedin')) {
+      response = "You can connect with Ravi on multiple platforms: Instagram (@ravixpanchal), LinkedIn (/ravixpanchal), GitHub, LeetCode, HackerRank, GeeksforGeeks, CodeChef, and many more! His email is ravi.panchal.kaithi@gmail.com. Check his Linktree for all links: linktr.ee/ravi.panchal";
     }
     
     // Hometown
-    if (message.includes('hometown') || message.includes('village') || message.includes('orai') || message.includes('kaithi')) {
-      return "Ravi is from Village Kaithi, Orai in Uttar Pradesh. It's his hometown where he completed his schooling before moving to Vadodara for his B.Tech." + socialLinks;
+    else if (message.includes('hometown') || message.includes('village') || message.includes('orai') || message.includes('kaithi')) {
+      response = "Ravi is from Village Kaithi, Orai in Uttar Pradesh. It's his hometown where he completed his schooling before moving to Vadodara for his B.Tech.";
     }
     
     // Projects and Work
-    if (message.includes('projects') || message.includes('work') || message.includes('portfolio') || message.includes('github')) {
-      return "Ravi is actively building projects and participating in coding challenges. You can check out his work on GitHub (github.com/ravixpanchal) and see his progress on various coding platforms like LeetCode and GeeksforGeeks." + socialLinks;
+    else if (message.includes('projects') || message.includes('work') || message.includes('portfolio') || message.includes('github')) {
+      response = "Ravi is actively building projects and participating in coding challenges. You can check out his work on GitHub (github.com/ravixpanchal) and see his progress on various coding platforms like LeetCode and GeeksforGeeks.";
     }
     
-    return "That's a great question! I can tell you about Ravi's education, achievements, coding journey, friends at college, social media profiles, or anything else you'd like to know. Feel free to ask about his hometown, interests, or how to connect with him!" + socialLinks;
+    // Default response
+    else {
+      response = "That's a great question! I can tell you about Ravi's education, achievements, coding journey, internships, friends at college, social media profiles, or anything else you'd like to know. Feel free to ask about his hometown, interests, or how to connect with him!";
+    }
+    
+    return response + socialLinks;
   };
 
   const handleSendMessage = async () => {
@@ -150,16 +162,33 @@ export const AIChatInterface = () => {
                   }`}>
                     {message.sender === 'user' ? <User className="h-4 w-4" /> : <Bot className="h-4 w-4" />}
                   </div>
-                  <div className={`p-3 rounded-lg ${
-                    message.sender === 'user'
-                      ? 'bg-primary text-primary-foreground'
-                      : 'bg-muted'
-                  }`}>
-                    <p className="text-sm">{message.text}</p>
-                    <span className="text-xs opacity-70 mt-1 block">
-                      {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                    </span>
-                  </div>
+                   <div className={`p-3 rounded-lg ${
+                     message.sender === 'user'
+                       ? 'bg-primary text-primary-foreground'
+                       : 'bg-muted'
+                   }`}>
+                     <div className="text-sm whitespace-pre-line">
+                       {message.text.split(/(https?:\/\/[^\s]+)/g).map((part, index) => {
+                         if (part.match(/https?:\/\/[^\s]+/)) {
+                           return (
+                             <a
+                               key={index}
+                               href={part}
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               className="text-blue-400 hover:text-blue-300 underline break-all"
+                             >
+                               {part}
+                             </a>
+                           );
+                         }
+                         return part;
+                       })}
+                     </div>
+                     <span className="text-xs opacity-70 mt-1 block">
+                       {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                     </span>
+                   </div>
                 </div>
               </div>
             ))}
