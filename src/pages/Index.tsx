@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { TerminalWindow } from "@/components/TerminalWindow";
 import { SocialLinks } from "@/components/SocialLinks";
 import { CodeBlock } from "@/components/CodeBlock";
@@ -12,6 +13,10 @@ import { ContactForm } from "@/components/ContactForm";
 import { AIChatInterface } from "@/components/AIChatInterface";
 
 const Index = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const codeSnippet = `const developer = {
   name: "Ravi Panchal",
   status: "#100DaysOfCode",
