@@ -47,22 +47,22 @@ export const AIChatInterface = () => {
     }
     
     // Basic Information
-    else if (message.includes('who is ravi') || message.includes('about ravi') || message.includes('tell me about')) {
+    else if (message.includes('who is ravi') || message.includes('about ravi') || message.includes('tell me about')) ||  message.includes('Intro')  {
       response = "Ravi Panchal is from Village Kaithi, Orai (Uttar Pradesh). He's currently pursuing B.Tech in Artificial Intelligence and Data Science at Gati Shakti Vishwavidyalaya (GSV), Vadodara. He's passionate about DSA, Machine Learning, and building innovative tech solutions.";
     }
     
     // Education
-    else if (message.includes('education') || message.includes('college') || message.includes('study') || message.includes('school')) {
+    else if (message.includes('education') || message.includes('college') || message.includes('study') || message.includes('school') ||  message.includes('tell me educational background')) {
       response = "Ravi completed 10th and 12th from S.R. Inter College, Orai, consistently ranking in top 3. He scored 92 percentile in JEE Mains after a dedicated drop year. Currently pursuing B.Tech in AI & Data Science at GSV Vadodara.";
     }
     
     // Skills and Interests
-    else if (message.includes('skills') || message.includes('technology') || message.includes('tech') || message.includes('interests')) {
+    else if (message.includes('skills') || message.includes('technology') || message.includes('current status') || message.includes('interests') ||  message.includes('tell me skills')) {
       response = "Ravi is passionate about solving DSA problems, Machine Learning, and exploring cutting-edge technologies. He also loves watching cricket! He's focused on building efficient and impactful tech products.";
     }
     
     // Achievements and Coding
-    else if (message.includes('achievement') || message.includes('accomplishment') || message.includes('leetcode') || message.includes('coding') || message.includes('100days')) {
+    else if (message.includes('achievement') || message.includes('Tell me about internships') || message.includes('leetcode') || message.includes('coding') || message.includes('100days') ||  message.includes('Internship')) {
       response = "Ravi is currently participating in #100DaysOfCode challenge on LeetCode and recently earned the 50 Days Badge! He achieved 1st Rank on GeeksforGeeks institutional leaderboard. He's building a strong coding profile across multiple platforms.";
     }
     
@@ -82,7 +82,7 @@ export const AIChatInterface = () => {
     }
     
     // Hometown
-    else if (message.includes('hometown') || message.includes('village') || message.includes('orai') || message.includes('kaithi')) {
+    else if (message.includes('hometown') || message.includes('village') || message.includes('orai') || message.includes('kaithi') ||  message.includes('address') ||  message.includes('tell me about where you live')) {
       response = "Ravi is from Village Kaithi, Orai in Uttar Pradesh. It's his hometown where he completed his schooling before moving to Vadodara for his B.Tech.";
     }
     
