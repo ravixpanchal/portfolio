@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Bot, Send, User, MessageCircle, Sparkles } from 'lucide-react';
+import { Bot, Send, User, MessageCircle, Sparkles, Code2, Instagram, Linkedin } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 interface Message {
@@ -47,22 +47,22 @@ export const AIChatInterface = () => {
     }
     
     // Basic Information
-    else if (message.includes('who is ravi') || message.includes('about ravi') || message.includes('tell me about')) ||  message.includes('Intro')  {
+    else if (message.includes('who is ravi') || message.includes('about ravi') || message.includes('tell me about') || message.includes('intro')) {
       response = "Ravi Panchal is from Village Kaithi, Orai (Uttar Pradesh). He's currently pursuing B.Tech in Artificial Intelligence and Data Science at Gati Shakti Vishwavidyalaya (GSV), Vadodara. He's passionate about DSA, Machine Learning, and building innovative tech solutions.";
     }
     
     // Education
-    else if (message.includes('education') || message.includes('college') || message.includes('study') || message.includes('school') ||  message.includes('tell me educational background')) {
+    else if (message.includes('education') || message.includes('college') || message.includes('study') || message.includes('school') || message.includes('tell me educational background')) {
       response = "Ravi completed 10th and 12th from S.R. Inter College, Orai, consistently ranking in top 3. He scored 92 percentile in JEE Mains after a dedicated drop year. Currently pursuing B.Tech in AI & Data Science at GSV Vadodara.";
     }
     
     // Skills and Interests
-    else if (message.includes('skills') || message.includes('technology') || message.includes('current status') || message.includes('interests') ||  message.includes('tell me skills')) {
+    else if (message.includes('skills') || message.includes('technology') || message.includes('current status') || message.includes('interests') || message.includes('tell me skills')) {
       response = "Ravi is passionate about solving DSA problems, Machine Learning, and exploring cutting-edge technologies. He also loves watching cricket! He's focused on building efficient and impactful tech products.";
     }
     
     // Achievements and Coding
-    else if (message.includes('achievement') || message.includes('Tell me about internships') || message.includes('leetcode') || message.includes('coding') || message.includes('100days') ||  message.includes('Internship')) {
+    else if (message.includes('achievement') || message.includes('tell me about internships') || message.includes('leetcode') || message.includes('coding') || message.includes('100days') || message.includes('internship')) {
       response = "Ravi is currently participating in #100DaysOfCode challenge on LeetCode and recently earned the 50 Days Badge! He achieved 1st Rank on GeeksforGeeks institutional leaderboard. He's building a strong coding profile across multiple platforms.";
     }
     
@@ -82,7 +82,7 @@ export const AIChatInterface = () => {
     }
     
     // Hometown
-    else if (message.includes('hometown') || message.includes('village') || message.includes('orai') || message.includes('kaithi') ||  message.includes('address') ||  message.includes('tell me about where you live')) {
+    else if (message.includes('hometown') || message.includes('village') || message.includes('orai') || message.includes('kaithi') || message.includes('address') || message.includes('tell me about where you live')) {
       response = "Ravi is from Village Kaithi, Orai in Uttar Pradesh. It's his hometown where he completed his schooling before moving to Vadodara for his B.Tech.";
     }
     
@@ -96,7 +96,7 @@ export const AIChatInterface = () => {
       response = "That's a great question! I can tell you about Ravi's education, achievements, coding journey, internships, friends at college, social media profiles, or anything else you'd like to know. Feel free to ask about his hometown, interests, or how to connect with him!";
     }
     
-    return response + socialLinks;
+    return response + "\n\n🔗 Connect with me:";  // Social icons will be added in the component
   };
 
   const handleSendMessage = async () => {
@@ -138,7 +138,7 @@ export const AIChatInterface = () => {
     <Card className="bg-card/50 backdrop-blur-sm border-primary/20 h-96">
       <CardHeader className="pb-3">
         <CardTitle className="flex items-center gap-2 text-primary">
-          <MessageCircle className="h-5 w-5" />
+          <Code2 className="h-5 w-5" />
           Chat with AI Assistant
           <Sparkles className="h-4 w-4 text-yellow-500" />
         </CardTitle>
@@ -167,24 +167,44 @@ export const AIChatInterface = () => {
                        ? 'bg-primary text-primary-foreground'
                        : 'bg-muted'
                    }`}>
-                     <div className="text-sm whitespace-pre-line">
-                       {message.text.split(/(https?:\/\/[^\s]+)/g).map((part, index) => {
-                         if (part.match(/https?:\/\/[^\s]+/)) {
-                           return (
-                             <a
-                               key={index}
-                               href={part}
-                               target="_blank"
-                               rel="noopener noreferrer"
-                               className="text-blue-400 hover:text-blue-300 underline break-all"
-                             >
-                               {part}
-                             </a>
-                           );
-                         }
-                         return part;
-                       })}
-                     </div>
+                      <div className="text-sm whitespace-pre-line">
+                        {message.text.split(/(https?:\/\/[^\s]+)/g).map((part, index) => {
+                          if (part.match(/https?:\/\/[^\s]+/)) {
+                            return (
+                              <a
+                                key={index}
+                                href={part}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-400 hover:text-blue-300 underline break-all"
+                              >
+                                {part}
+                              </a>
+                            );
+                          }
+                          return part;
+                        })}
+                        {message.sender === 'ai' && (
+                          <div className="flex gap-2 mt-2">
+                            <a
+                              href="https://www.instagram.com/ravixpanchal/"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="p-1 rounded bg-gradient-to-r from-purple-500 to-pink-500 hover:scale-110 transition-transform"
+                            >
+                              <Instagram className="w-4 h-4 text-white" />
+                            </a>
+                            <a
+                              href="https://www.linkedin.com/in/ravixpanchal/"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="p-1 rounded bg-blue-600 hover:scale-110 transition-transform"
+                            >
+                              <Linkedin className="w-4 h-4 text-white" />
+                            </a>
+                          </div>
+                        )}
+                      </div>
                      <span className="text-xs opacity-70 mt-1 block">
                        {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                      </span>

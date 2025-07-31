@@ -11,6 +11,7 @@ import heroImage from "@/assets/hero-coding.jpg";
 import { ContactForm } from "@/components/ContactForm";
 
 import { AIChatInterface } from "@/components/AIChatInterface";
+import { GitHubProjects } from "@/components/GitHubProjects";
 
 const Index = () => {
   useEffect(() => {
@@ -167,6 +168,8 @@ console.log("Welcome to my portfolio!");`;
         </div>
       </section>
 
+      {/* GitHub Projects Section */}
+      <GitHubProjects />
 
       {/* Contact & AI Chat Section */}
       <section className="py-20 px-4">
