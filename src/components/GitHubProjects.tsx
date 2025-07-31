@@ -58,17 +58,7 @@ export const GitHubProjects = () => {
   };
 
   const getLanguageColor = (language: string) => {
-    const colors: Record<string, string> = {
-      JavaScript: 'bg-yellow-500',
-      TypeScript: 'bg-blue-500',
-      Python: 'bg-green-500',
-      Java: 'bg-red-500',
-      HTML: 'bg-orange-500',
-      CSS: 'bg-purple-500',
-      C: 'bg-gray-600',
-      'C++': 'bg-pink-500',
-    };
-    return colors[language] || 'bg-gray-400';
+    return 'bg-green-500';
   };
 
   if (loading) {
