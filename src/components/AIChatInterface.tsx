@@ -190,17 +190,17 @@ export const AIChatInterface = () => {
                               href="https://www.instagram.com/ravixpanchal/"
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="p-1 rounded bg-gradient-to-r from-green-500 to-blue-500 hover:scale-110 transition-transform"
+                              className="p-1 rounded bg-gradient-to-r from-purple-500 to-pink-500 hover:scale-110 transition-transform"
                             >
-                              <FileCode className="w-4 h-4 text-white" />
+                              <Instagram className="w-4 h-4 text-white" />
                             </a>
                             <a
                               href="https://www.linkedin.com/in/ravixpanchal/"
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="p-1 rounded bg-gradient-to-r from-blue-500 to-purple-500 hover:scale-110 transition-transform"
+                              className="p-1 rounded bg-blue-600 hover:scale-110 transition-transform"
                             >
-                              <Network className="w-4 h-4 text-white" />
+                              <Linkedin className="w-4 h-4 text-white" />
                             </a>
                           </div>
                         )}
