@@ -26,12 +26,15 @@ export const GitHubProjects = () => {
   useEffect(() => {
     const fetchRepositories = async () => {
       try {
-        const response = await fetch('https://api.github.com/users/ravixpanchal/repos?sort=updated&per_page=6');
+        const response = await fetch('https://api.github.com/users/ravixpanchal/repos?sort=updated&per_page=50');
         if (!response.ok) {
           throw new Error('Failed to fetch repositories');
         }
         const data = await response.json();
-        setRepositories(data);
+        const filteredRepos = data.filter((repo: Repository) => 
+          repo.name === 'GFG-POTD' || repo.name === 'Leetcode-Daily-Challenge'
+        );
+        setRepositories(filteredRepos);
       } catch (error) {
         toast({
           title: "Error",
