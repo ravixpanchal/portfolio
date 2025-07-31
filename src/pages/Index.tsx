@@ -133,21 +133,7 @@ console.log("Welcome to my portfolio!");`;
               </div>
             </Card>
             
-            <Card className="p-6 terminal-window">
-              <div className="terminal-header">
-                <div className="flex gap-2">
-                  <div className="terminal-dot terminal-red"></div>
-                  <div className="terminal-dot terminal-yellow"></div>
-                  <div className="terminal-dot terminal-green"></div>
-                </div>
-              </div>
-              <div className="mt-4">
-                <h3 className="text-xl font-semibold mb-2 text-primary font-mono">Summer Intern @AAI</h3>
-                <p className="text-sm text-muted-foreground">
-                  Working on innovative projects in the aviation industry, applying AI/ML solutions.
-                </p>
-              </div>
-            </Card>
+           
             
             <Card className="p-6 terminal-window">
               <div className="terminal-header">
