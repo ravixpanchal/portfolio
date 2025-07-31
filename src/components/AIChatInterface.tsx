@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Bot, Send, User, MessageCircle, Sparkles, Code2, Instagram, Linkedin } from 'lucide-react';
+import { Bot, Send, User, MessageCircle, Sparkles, Code2, Instagram, Linkedin, Terminal, FileCode, Network } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 interface Message {
@@ -160,7 +160,7 @@ export const AIChatInterface = () => {
                       ? 'bg-primary text-primary-foreground' 
                       : 'bg-secondary text-secondary-foreground'
                   }`}>
-                    {message.sender === 'user' ? <User className="h-4 w-4" /> : <Bot className="h-4 w-4" />}
+                    {message.sender === 'user' ? <User className="h-4 w-4" /> : <Terminal className="h-4 w-4" />}
                   </div>
                    <div className={`p-3 rounded-lg ${
                      message.sender === 'user'
@@ -190,17 +190,17 @@ export const AIChatInterface = () => {
                               href="https://www.instagram.com/ravixpanchal/"
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="p-1 rounded bg-gradient-to-r from-purple-500 to-pink-500 hover:scale-110 transition-transform"
+                              className="p-1 rounded bg-gradient-to-r from-green-500 to-blue-500 hover:scale-110 transition-transform"
                             >
-                              <Instagram className="w-4 h-4 text-white" />
+                              <FileCode className="w-4 h-4 text-white" />
                             </a>
                             <a
                               href="https://www.linkedin.com/in/ravixpanchal/"
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="p-1 rounded bg-blue-600 hover:scale-110 transition-transform"
+                              className="p-1 rounded bg-gradient-to-r from-blue-500 to-purple-500 hover:scale-110 transition-transform"
                             >
-                              <Linkedin className="w-4 h-4 text-white" />
+                              <Network className="w-4 h-4 text-white" />
                             </a>
                           </div>
                         )}
@@ -216,7 +216,7 @@ export const AIChatInterface = () => {
               <div className="flex gap-3 justify-start">
                 <div className="flex gap-2">
                   <div className="w-8 h-8 rounded-full bg-secondary text-secondary-foreground flex items-center justify-center">
-                    <Bot className="h-4 w-4" />
+                    <Terminal className="h-4 w-4" />
                   </div>
                   <div className="bg-muted p-3 rounded-lg">
                     <div className="flex gap-1">
