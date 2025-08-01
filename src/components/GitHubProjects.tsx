@@ -132,14 +132,6 @@ export const GitHubProjects = () => {
                       Code
                     </a>
                   </Button>
-                  {repo.homepage && (
-                    <Button variant="terminal" size="sm" asChild className="flex-1">
-                      <a href={repo.homepage} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="h-4 w-4 mr-1" />
-                        Demo
-                      </a>
-                    </Button>
-                  )}
                 </div>
               </CardContent>
             </Card>
