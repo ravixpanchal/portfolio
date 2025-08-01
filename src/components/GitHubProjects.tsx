@@ -100,7 +100,7 @@ export const GitHubProjects = () => {
               <CardContent className="space-y-4">
                 <div className="flex flex-wrap gap-2">
                   {repo.language && (
-                    <Badge variant="outline" className="text-green-500 border-none bg-transparent">
+                    <Badge variant="outline" className="text-green-500 bg-transparent">
                       {repo.language}
                     </Badge>
                   )}
