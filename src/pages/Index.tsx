@@ -65,7 +65,7 @@ console.log("Welcome to my portfolio!");`;
       </section>
 
       {/* About Section */}
-      <section className="py-20 px-4">
+      <section className="py-20 px-4 mt-16">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
             <TerminalWindow title="about.js">
@@ -116,7 +116,7 @@ console.log("Welcome to my portfolio!");`;
             Current Status
           </h2>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
             <Card className="p-6 terminal-window">
               <div className="terminal-header">
                 <div className="flex gap-2">
