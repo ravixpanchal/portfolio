@@ -37,21 +37,21 @@ console.log("Welcome to my portfolio!");`;
       <div className="matrix-bg"></div>
       
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-4">
+      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{ backgroundImage: `url(${heroImage})` }}
         />
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <div className="mb-8">
-            <Badge variant="outline" className="mb-4 text-primary border-primary animate-glow">
+            <Badge variant="outline" className="mb-4 text-primary border-primary animate-glow text-xs sm:text-sm">
               <Terminal className="w-3 h-3 mr-1" />
               Currently Active
             </Badge>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 neon-text animate-float">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 neon-text animate-float leading-tight">
               <TypingEffect text="Ravi Panchal" speed={150} />
             </h1>
-            <div className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-muted-foreground font-mono mb-8 px-4">
+            <div className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-muted-foreground font-mono mb-8 px-2 sm:px-4 leading-relaxed">
               <TypingEffect 
                 text="#100DaysOfCode in Progress | Summer'25 Intern @AAI | Ex-Intern @Indian Railways | Btech AI&DS'27 @GSV | Building in Public"
                 speed={50}
@@ -177,14 +177,14 @@ console.log("Welcome to my portfolio!");`;
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-4 border-t border-border">
+      <footer className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 border-t border-border">
         <div className="max-w-4xl mx-auto text-center">
           <TerminalWindow title="footer.js">
-            <div className="font-mono">
-              <p className="text-primary mb-2">
+            <div className="font-mono p-2 sm:p-4">
+              <p className="text-primary mb-2 text-sm sm:text-base">
                 {">"} Thank you for visiting my portfolio!
               </p>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground mb-4 text-sm">
                 {">"} Let's connect and build something amazing together.
               </p>
               <div className="mb-4">

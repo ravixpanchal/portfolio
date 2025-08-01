@@ -232,14 +232,14 @@ export const AIChatInterface = () => {
           <div ref={messagesEndRef} />
         </ScrollArea>
         
-        <div className="p-4 border-t border-primary/10">
+        <div className="p-3 sm:p-4 border-t border-primary/10">
           <div className="flex gap-2">
             <Input
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder="Ask about Ravi's skills, projects, or experience..."
-              className="bg-background/50"
+              placeholder="Ask about Ravi's skills, projects..."
+              className="bg-background/50 text-xs sm:text-sm"
               disabled={isLoading}
             />
             <Button 
@@ -247,8 +247,9 @@ export const AIChatInterface = () => {
               size="icon"
               variant="terminal"
               disabled={!inputValue.trim() || isLoading}
+              className="h-8 w-8 sm:h-10 sm:w-10"
             >
-              <Send className="h-4 w-4" />
+              <Send className="h-3 w-3 sm:h-4 sm:w-4" />
             </Button>
           </div>
         </div>

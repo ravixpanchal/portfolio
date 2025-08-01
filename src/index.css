@@ -116,10 +116,15 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground font-inter;
     background: var(--gradient-terminal);
     overflow-x: hidden;
+    font-size: 16px; /* Base font size for better mobile readability */
   }
 }
 
@@ -194,5 +199,27 @@
   
   .social-link:hover {
     filter: drop-shadow(0 0 10px hsl(var(--primary) / 0.6));
+  }
+
+  /* Mobile-specific responsive improvements */
+  @media (max-width: 768px) {
+    .matrix-bg {
+      background-size: 15px 15px; /* Smaller pattern for mobile */
+    }
+    
+    .terminal-window {
+      @apply shadow-lg; /* Reduced shadow for mobile */
+    }
+    
+    .neon-text {
+      text-shadow: 0 0 5px hsl(var(--primary) / 0.6); /* Reduced glow for mobile */
+    }
+  }
+
+  /* Touch-friendly button sizing */
+  @media (hover: none) and (pointer: coarse) {
+    .social-link {
+      @apply hover:scale-105; /* Reduced scale for touch devices */
+    }
   }
 }
