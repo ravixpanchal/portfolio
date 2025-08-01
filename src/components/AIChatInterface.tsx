@@ -160,7 +160,7 @@ export const AIChatInterface = () => {
                       ? 'bg-primary text-primary-foreground' 
                       : 'bg-secondary text-secondary-foreground'
                   }`}>
-                    {message.sender === 'user' ? <User className="h-4 w-4" /> : <Terminal className="h-4 w-4" />}
+                    {message.sender === 'user' ? <User className="h-4 w-4" /> : <Terminal className="h-4 w-4 text-primary" />}
                   </div>
                    <div className={`p-3 rounded-lg ${
                      message.sender === 'user'
