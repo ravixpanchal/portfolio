@@ -8,7 +8,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { User, MapPin, Calendar, Coffee, Code, Terminal, Sparkles, Trophy, Award } from "lucide-react";
 import heroImage from "@/assets/hero-coding.jpg";
-import achievementImage from "@/assets/100-days-achievement.jpg";
+import achievementImage from "/lovable-uploads/7b4da3cd-8472-4c38-9996-f85b31ae67c8.png";
 import { ContactForm } from "@/components/ContactForm";
 
 import { AIChatInterface } from "@/components/AIChatInterface";
