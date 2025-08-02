@@ -23,7 +23,7 @@ export const ContactForm = () => {
     try {
       // Primary method: Web3Forms (direct email service)
       const submitFormData = new FormData();
-      submitFormData.append('access_key', 'c1351cf6-4f8d-4a99-8c2b-8e4f8f4f8f4f'); // Free service
+      submitFormData.append('access_key', 'YOUR_WEB3FORMS_ACCESS_KEY'); // You need to get a real key from web3forms.com
       submitFormData.append('name', formData.name);
       submitFormData.append('email', formData.email);
       submitFormData.append('message', formData.message);

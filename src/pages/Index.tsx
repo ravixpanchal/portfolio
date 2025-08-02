@@ -6,8 +6,9 @@ import { TypingEffect } from "@/components/TypingEffect";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { User, MapPin, Calendar, Coffee, Code, Terminal, Sparkles } from "lucide-react";
+import { User, MapPin, Calendar, Coffee, Code, Terminal, Sparkles, Trophy, Award } from "lucide-react";
 import heroImage from "@/assets/hero-coding.jpg";
+import achievementImage from "@/assets/100-days-achievement.jpg";
 import { ContactForm } from "@/components/ContactForm";
 
 import { AIChatInterface } from "@/components/AIChatInterface";
@@ -150,6 +151,88 @@ console.log("Welcome to my portfolio!");`;
                 </p>
               </div>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* 100 Days of Code Achievement Section */}
+      <section className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 neon-text">
+              <Trophy className="inline mr-2" />
+              100 Days of Code's Achievement
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Celebrating consistent dedication to coding and continuous learning
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Achievement Image */}
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary to-primary-glow rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-300"></div>
+              <div className="relative bg-card/50 backdrop-blur-sm border border-primary/20 rounded-lg overflow-hidden">
+                <img 
+                  src={achievementImage} 
+                  alt="100 Days of Code Achievement" 
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            </div>
+            
+            {/* Achievement Details */}
+            <div className="space-y-6">
+              <Card className="p-6 terminal-window">
+                <div className="terminal-header">
+                  <div className="flex gap-2">
+                    <div className="terminal-dot terminal-red"></div>
+                    <div className="terminal-dot terminal-yellow"></div>
+                    <div className="terminal-dot terminal-green"></div>
+                  </div>
+                </div>
+                <div className="mt-4 space-y-4">
+                  <div className="flex items-center gap-3">
+                    <Award className="w-5 h-5 text-primary" />
+                    <h3 className="text-xl font-semibold text-primary font-mono">Milestone Reached</h3>
+                  </div>
+                  
+                  <div className="space-y-3 text-sm">
+                    <div className="flex items-center gap-3">
+                      <Badge variant="outline" className="text-primary border-primary">
+                        <Terminal className="w-3 h-3 mr-1" />
+                        100+ Days
+                      </Badge>
+                      <span className="text-muted-foreground">Consistent Coding</span>
+                    </div>
+                    
+                    <div className="flex items-center gap-3">
+                      <Badge variant="outline" className="text-primary border-primary">
+                        <Code className="w-3 h-3 mr-1" />
+                        Daily Commits
+                      </Badge>
+                      <span className="text-muted-foreground">GitHub Activity</span>
+                    </div>
+                    
+                    <div className="flex items-center gap-3">
+                      <Badge variant="outline" className="text-primary border-primary">
+                        <Sparkles className="w-3 h-3 mr-1" />
+                        LeetCode
+                      </Badge>
+                      <span className="text-muted-foreground">Problem Solving</span>
+                    </div>
+                  </div>
+                  
+                  <div className="pt-4 border-t border-border">
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      Completed 100+ days of consistent coding practice, focusing on Data Structures & Algorithms, 
+                      web development, and building real-world projects. This journey has strengthened my 
+                      problem-solving skills and coding discipline.
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
