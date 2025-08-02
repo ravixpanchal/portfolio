@@ -5,7 +5,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Mail, Send, User, MessageSquare } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import emailjs from '@emailjs/browser';
+import { createClient } from '@supabase/supabase-js';
 
 export const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -13,20 +13,23 @@ export const ContactForm = () => {
     email: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Simple working contact form using Web3Forms
-    const submitFormData = new FormData();
-    submitFormData.append('access_key', 'c1351cf6-4f8d-4a99-8c2b-8e4f8f4f8f4f'); // Free service
-    submitFormData.append('name', formData.name);
-    submitFormData.append('email', formData.email);
-    submitFormData.append('message', formData.message);
-    submitFormData.append('redirect', 'false');
+    setIsSubmitting(true);
 
     try {
+      // Primary method: Web3Forms (direct email service)
+      const submitFormData = new FormData();
+      submitFormData.append('access_key', 'c1351cf6-4f8d-4a99-8c2b-8e4f8f4f8f4f'); // Free service
+      submitFormData.append('name', formData.name);
+      submitFormData.append('email', formData.email);
+      submitFormData.append('message', formData.message);
+      submitFormData.append('subject', `Portfolio Contact: Message from ${formData.name}`);
+      submitFormData.append('redirect', 'false');
+
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: submitFormData
@@ -34,27 +37,93 @@ export const ContactForm = () => {
 
       if (response.ok) {
         toast({
-          title: "Message sent successfully!",
-          description: "Thank you for your message. I'll get back to you soon.",
+          title: "✅ Message sent successfully!",
+          description: "Thank you for reaching out! I'll get back to you within 24 hours.",
         });
         
         // Reset form
         setFormData({ name: '', email: '', message: '' });
       } else {
-        throw new Error('Failed to send message');
+        throw new Error('Web3Forms service unavailable');
       }
     } catch (error) {
-      // Simple mailto fallback
-      const subject = encodeURIComponent(`Message from ${formData.name}`);
-      const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
-      const mailtoLink = `mailto:ravi.panchal.kaithi@gmail.com?subject=${subject}&body=${body}`;
+      console.error('Primary email service failed:', error);
       
-      window.open(mailtoLink, '_blank');
-      
-      toast({
-        title: "Message prepared",
-        description: "Your message is ready to send via email.",
-      });
+      // Backup method: EmailJS
+      try {
+        // Using EmailJS as backup
+        const emailJSResponse = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            service_id: 'service_portfolio',
+            template_id: 'template_contact',
+            user_id: 'user_portfolio_key',
+            template_params: {
+              from_name: formData.name,
+              from_email: formData.email,
+              message: formData.message,
+              to_email: 'ravi.panchal.kaithi@gmail.com'
+            }
+          })
+        });
+
+        if (emailJSResponse.ok) {
+          toast({
+            title: "✅ Message sent successfully!",
+            description: "Thank you for your message. I'll get back to you soon!",
+          });
+          setFormData({ name: '', email: '', message: '' });
+        } else {
+          throw new Error('EmailJS service unavailable');
+        }
+      } catch (backupError) {
+        // Final fallback: Direct HTTP POST to a simple endpoint
+        try {
+          const fallbackResponse = await fetch('https://formspree.io/f/xpwagjwo', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              name: formData.name,
+              email: formData.email,
+              message: formData.message,
+              _subject: `Portfolio Contact from ${formData.name}`,
+            })
+          });
+
+          if (fallbackResponse.ok) {
+            toast({
+              title: "✅ Message sent successfully!",
+              description: "Your message has been delivered. I'll respond soon!",
+            });
+            setFormData({ name: '', email: '', message: '' });
+          } else {
+            throw new Error('All services unavailable');
+          }
+        } catch (finalError) {
+          // Last resort: mailto link
+          const subject = encodeURIComponent(`Portfolio Message from ${formData.name}`);
+          const body = encodeURIComponent(
+            `Hi Ravi,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}\n\n---\nSent from your portfolio contact form`
+          );
+          const mailtoLink = `mailto:ravi.panchal.kaithi@gmail.com?subject=${subject}&body=${body}`;
+          
+          window.open(mailtoLink, '_blank');
+          
+          toast({
+            title: "📧 Email client opened",
+            description: "Your message is ready to send via your email app.",
+          });
+          
+          // Don't reset form in this case so user can try again
+        }
+      }
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -125,9 +194,14 @@ export const ContactForm = () => {
             />
           </div>
           
-          <Button type="submit" className="w-full" variant="terminal">
-            <Send className="h-4 w-4 mr-2" />
-            Send Message
+          <Button 
+            type="submit" 
+            className="w-full" 
+            variant="terminal"
+            disabled={isSubmitting}
+          >
+            <Send className={`h-4 w-4 mr-2 ${isSubmitting ? 'animate-spin' : ''}`} />
+            {isSubmitting ? 'Sending...' : 'Send Message'}
           </Button>
           
           <div className="text-center text-sm text-muted-foreground">
